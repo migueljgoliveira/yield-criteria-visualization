@@ -1,0 +1,95 @@
+running build
+running config_cc
+unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+build_src
+building extension "ummdp_yfunc_cpb2006" sources
+f2py options: []
+f2py:> C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\ummdp_yfunc_cpb2006module.c
+creating C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8
+Reading fortran codes...
+	Reading file 'ummdp_yfunc_cpb2006.f' (format:fix,strict)
+Post-processing...
+	Block: ummdp_yfunc_cpb2006
+{'attrspec': ['dimension(6)', 'intent(in)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_cpb2006
+vars2fortran: No typespec for argument "stress".
+{'attrspec': ['intent(in)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_cpb2006
+vars2fortran: No typespec for argument "ndyld".
+{'attrspec': ['dimension(ndyld)', 'intent(in)', 'depend(ndyld)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_cpb2006
+vars2fortran: No typespec for argument "pryld".
+{'attrspec': ['intent(in)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_cpb2006
+vars2fortran: No typespec for argument "nreq".
+{'attrspec': ['intent(out)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_cpb2006
+vars2fortran: No typespec for argument "se".
+{'attrspec': ['dimension(6)', 'intent(out)', 'depend(6)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_cpb2006
+vars2fortran: No typespec for argument "dseds".
+			Block: jancae_cpb2006
+{'attrspec': ['dimension(nv)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_mv
+vars2fortran: No typespec for argument "v".
+{'attrspec': ['dimension(nv,nu)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_mv
+vars2fortran: No typespec for argument "a".
+{'attrspec': ['dimension(nu)']}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_mv
+vars2fortran: No typespec for argument "u".
+{}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_mv
+vars2fortran: No typespec for argument "nv".
+{}
+In: :ummdp_yfunc_cpb2006:ummdp_yfunc_cpb2006.f:jancae_mv
+vars2fortran: No typespec for argument "nu".
+			Block: jancae_mv
+Post-processing (stage 2)...
+Building modules...
+	Building module "ummdp_yfunc_cpb2006"...
+		Constructing wrapper function "jancae_cpb2006"...
+		  se,dseds = jancae_cpb2006(stress,ndyld,pryld,nreq)
+		Constructing wrapper function "jancae_mv"...
+		  jancae_mv(v,a,u,[nv,nu])
+	Wrote C/API module "ummdp_yfunc_cpb2006" to file "C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\ummdp_yfunc_cpb2006module.c"
+  adding 'C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\fortranobject.c' to sources.
+  adding 'C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8' to include_dirs.
+copying C:\ProgramData\Miniconda3\lib\site-packages\numpy\f2py\src\fortranobject.c -> C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8
+copying C:\ProgramData\Miniconda3\lib\site-packages\numpy\f2py\src\fortranobject.h -> C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8
+build_src: building npy-pkg config files
+running build_ext
+No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils
+customize MSVCCompiler
+customize MSVCCompiler using build_ext
+customize IntelEM64VisualFCompiler
+Found executable C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe
+Could not locate executable C:\Program
+customize IntelEM64VisualFCompiler using build_ext
+building 'ummdp_yfunc_cpb2006' extension
+compiling C sources
+creating C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users
+creating C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1
+creating C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData
+creating C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local
+creating C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local\Temp
+creating C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u
+creating C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\x86_amd64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -IC:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8 -IC:\ProgramData\Miniconda3\lib\site-packages\numpy\core\include -IC:\ProgramData\Miniconda3\include -IC:\ProgramData\Miniconda3\include -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE -IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt -IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\shared -IC:\Program Files (x86)\Windows Kits\8.1\include\\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\winrt -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\include\intel64 -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE -IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt -IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\shared -IC:\Program Files (x86)\Windows Kits\8.1\include\\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\winrt -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mpi\intel64\bin\..\..\intel64\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\ipp\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mkl\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\pstl\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\daal\include -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE -IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt -IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\shared -IC:\Program Files (x86)\Windows Kits\8.1\include\\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\winrt -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\include\intel64 -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mpi\intel64\bin\..\..\intel64\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\ipp\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mkl\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\pstl\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\daal\include /TcC:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\ummdp_yfunc_cpb2006module.c /FoC:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\ummdp_yfunc_cpb2006module.obj
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\x86_amd64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -IC:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8 -IC:\ProgramData\Miniconda3\lib\site-packages\numpy\core\include -IC:\ProgramData\Miniconda3\include -IC:\ProgramData\Miniconda3\include -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE -IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt -IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\shared -IC:\Program Files (x86)\Windows Kits\8.1\include\\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\winrt -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\include\intel64 -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE -IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt -IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\shared -IC:\Program Files (x86)\Windows Kits\8.1\include\\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\winrt -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mpi\intel64\bin\..\..\intel64\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\ipp\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mkl\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\pstl\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\daal\include -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE -IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE -IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt -IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\shared -IC:\Program Files (x86)\Windows Kits\8.1\include\\um -IC:\Program Files (x86)\Windows Kits\8.1\include\\winrt -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\include\intel64 -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mpi\intel64\bin\..\..\intel64\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\ipp\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mkl\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\pstl\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\include -IC:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\daal\include /TcC:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\fortranobject.c /FoC:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\fortranobject.obj
+compiling Fortran sources
+Fortran f77 compiler: C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe /nologo /MD /nbs /names:lowercase /assume:underscore /heap-arrays:0
+Fortran f90 compiler: C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe /nologo /MD /nbs /names:lowercase /assume:underscore /heap-arrays:0
+Fortran fix compiler: C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe /nologo /MD /nbs /names:lowercase /assume:underscore /heap-arrays:0
+compile options: '-IC:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8 -IC:\ProgramData\Miniconda3\lib\site-packages\numpy\core\include -IC:\ProgramData\Miniconda3\include -IC:\ProgramData\Miniconda3\include -c'
+ifort.exe:f77: ummdp_yfunc_cpb2006.f
+ifort: command line warning #10161: unrecognized source type 'Files'; object file assumed
+ifort: command line warning #10161: unrecognized source type '(x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe'; object file assumed
+ifort: command line warning #10006: ignoring unknown option '/c '
+ifort: warning #10145: no action performed for file 'Files'
+ifort: warning #10145: no action performed for file '(x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\bin\intel64\ifort.exe'
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\x86_amd64\link.exe /nologo /INCREMENTAL:NO /LTCG /DLL /MANIFEST:EMBED,ID=2 /MANIFESTUAC:NO /LIBPATH:C:\ProgramData\Miniconda3\libs /LIBPATH:C:\ProgramData\Miniconda3\PCbuild\amd64 /LIBPATH:C:\ProgramData\Miniconda3\libs /LIBPATH:C:\ProgramData\Miniconda3\PCbuild\amd64 /LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\LIB\amd64 /LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\LIB\amd64 /LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.10240.0\ucrt\x64 /LIBPATH:C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\lib\um\x64 /LIBPATH:C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x64 /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\lib /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\lib\intel64 /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\lib\intel64_win /LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\LIB\amd64 /LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\LIB\amd64 /LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.10240.0\ucrt\x64 /LIBPATH:C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\lib\um\x64 /LIBPATH:C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x64 /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mpi\intel64\bin\..\..\intel64\lib /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\ipp\lib\intel64 /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mkl\lib\intel64_win /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\lib\intel64_win /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\lib\intel64\vc_mt /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\lib\intel64\vc_mt /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\daal\lib\intel64_win /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\lib\intel64_win\vc_mt /LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\LIB\amd64 /LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\LIB\amd64 /LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.10240.0\ucrt\x64 /LIBPATH:C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\lib\um\x64 /LIBPATH:C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x64 /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\lib /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\lib\intel64 /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\compiler\lib\intel64_win /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mpi\intel64\bin\..\..\intel64\lib /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\ipp\lib\intel64 /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\mkl\lib\intel64_win /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\bin\..\lib\intel64\vc_mt /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\daal\lib\intel64_win /LIBPATH:C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.5.274\windows\tbb\lib\intel64_win\vc_mt /EXPORT:PyInit_ummdp_yfunc_cpb2006 C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\ummdp_yfunc_cpb2006module.obj C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\fortranobject.obj C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\ummdp_yfunc_cpb2006.o /OUT:.\ummdp_yfunc_cpb2006.cp38-win_amd64.pyd /IMPLIB:C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\Release\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u\src.win-amd64-3.8\ummdp_yfunc_cpb2006.cp38-win_amd64.lib
+Removing build directory C:\Users\M9CALI~1\AppData\Local\Temp\tmp4o9zuo4u
