@@ -1,5 +1,5 @@
 # YldViz
-### Yield Criteria Visualization
+### *Yield Criteria Visualization*
 
 Available Yield Criteria:
 * von Mises
