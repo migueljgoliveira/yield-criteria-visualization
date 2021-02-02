@@ -3,7 +3,7 @@
 
 	Created by: M.G. Oliveira
 
-	Last Updated: 01/2021
+	Last Updated: 02/2021
 """
 
 # IMPORT PACKAGES
@@ -20,6 +20,7 @@ from ummdp.ummdp_yfunc_hill48 import jancae_hill_1948
 from ummdp.ummdp_yfunc_yld2000_2d import jancae_yld2000_2d
 from ummdp.ummdp_yfunc_yld2004_18p import jancae_yld2004_18p
 from ummdp.ummdp_yfunc_cpb2006 import jancae_cpb2006
+from ummdp.ummdp_yfunc_hill90 import jancae_hill90
 
 # ----------------------------------------------------------------- YIELD PLOT
 def yld_plot(shear,locus0,locus1,locus2,aniso):
@@ -306,6 +307,12 @@ def yld_wrapper(yldid,ndyld):
 		n = 9
 		if ndyld != n:
 			yld_warning('Yld2000-2d',n,ndyld)
+
+	elif yild == -7:
+		yld = jancae_hill90
+		n = 5
+		if nyld != n:
+			yld_warning('Hill 1990',n,ndyld)
 
 	return yld
 
