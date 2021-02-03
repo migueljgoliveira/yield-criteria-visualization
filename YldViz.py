@@ -20,6 +20,7 @@ from ummdp.ummdp_yfunc_hill48 import jancae_hill_1948
 from ummdp.ummdp_yfunc_yld2000_2d import jancae_yld2000_2d
 from ummdp.ummdp_yfunc_yld2004_18p import jancae_yld2004_18p
 from ummdp.ummdp_yfunc_cpb2006 import jancae_cpb2006
+from ummdp.ummdp_yfunc_bbc2005 import jancae_bbc2005
 
 # ----------------------------------------------------------------- YIELD PLOT
 def yld_plot(shear,locus0,locus1,locus2,aniso):
@@ -306,6 +307,13 @@ def yld_wrapper(yldid,ndyld):
 		n = 9
 		if ndyld != n:
 			yld_warning('Yld2000-2d',n,ndyld)
+
+	# BBC 2005
+	elif yldid == -4:
+		yld = jancae_bbc2005
+		n = 9
+		if ndyld != n:
+			yld_warning('BBC 2005',n,ndyld)
 
 	return yld
 

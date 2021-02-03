@@ -30,14 +30,14 @@ c                                                     ---- stress tensor
 c                                            ---- anisotropic parameters
       do i = 1,8
         a(i) = pryld(i)
-      enddo
+      end do
       em = pryld(9)
 c                                         ---- set linear transf. matrix
       call jancae_yld2000_2d_am ( a,am )
 c                                                 ---- equivalent stress
       call jancae_yld2000_2d_xyphi ( s,em,am,xx,yy,phi )
       q = phi(1) + phi(2)
-      if ( q .le. 0.0 ) q = 0.
+      if ( q .le. 0.0 ) q = 0.0d0
 c
       se = (0.5d0*q)**(1.0d0/em)
 c                                            ---- 1st order differential
