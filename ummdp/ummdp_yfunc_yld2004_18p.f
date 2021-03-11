@@ -94,6 +94,8 @@ c
 c                  ---- matrix for transforming Cauchy stress to sp1,sp2
       call jancae_mm ( ctp1,cp1,cl,6,6,6 )
       call jancae_mm ( ctp2,cp2,cl,6,6,6 )
+c                               ---- coefficient of equivalent stress dc
+c     call jancae_yld2004_18p_coef ( cp1,cp2,pi,am,dc )
 c                                  ---- calculation of equivalent stress
       call jancae_yld2004_18p_yf ( ctp1,ctp2,s,am,ami,dc,pi,
      &                             sp1,sp2,psp1,psp2,hp1,hp2,
@@ -232,6 +234,58 @@ c                                                        ---- d(se)/d(s)
         end do
 c
       end if
+c
+      return
+      end
+c
+c
+c
+c----------------------------------------------------------(yld2004-18p)
+c      calculate  coefficient of equivalent stress dc
+c
+      subroutine jancae_yld2004_18p_coef ( cp1,cp2,pi,am,dc )
+c-----------------------------------------------------------------------
+      implicit real*8 (a-h,o-z)
+      dimension cp1(6,6),cp2(6,6),bbp1(3),bbp2(3)
+c
+      call jancae_yld2004_18p_coef_sub ( cp1,pi,bbp1 )
+      call jancae_yld2004_18p_coef_sub ( cp2,pi,bbp2 )
+      dc = 0.0d0
+      do i = 1,3
+        do j = 1,3
+          dc = dc + (abs(bbp1(i)-bbp2(j)))**am
+        end do
+      end do
+c
+      return
+      end
+c
+c
+c
+c----------------------------------------------------------(yld2004-18p)
+c     calculate  coefficient of equivalent stress dc 2
+c
+      subroutine jancae_yld2004_18p_coef_sub ( cp,pi,bbp )
+c-----------------------------------------------------------------------
+      implicit real*8 (a-h,o-z)
+      dimension cp(6,6),aap(3),bbp(3)
+c
+c                                                  ---- coefficients aap
+      aap(1) = (cp(1,2)+cp(1,3)-2.0d0*cp(2,1) +
+     1          cp(2,3)-2.0d0*cp(3,1)+cp(3,2))/9.0d0
+      aap(2) = ((2.0d0*cp(2,1)-cp(2,3))*(cp(3,2)-2.0d0*cp(3,1)) +
+     2          (2.0d0*cp(3,1)-cp(3,2))*(cp(1,2)+cp(1,3)) +
+     3          (cp(1,2)+cp(1,3))*(2.0d0*cp(2,1)-cp(2,3)))/2.7d1
+      aap(3) = (cp(1,2)+cp(1,3))*(cp(2,3)-2.0d0*cp(2,1))*
+     1         (cp(3,2)-2.0d0*cp(3,1))/5.4d1
+c                                          ---- coefficients ppp,qqp,ttp
+      ppp = aap(1)**2 + aap(2)
+      qqp = (2.0d0*aap(1)**3+3.0d0*aap(1)*aap(2)+2.0d0*aap(3)) / 2.0d0
+      ttp = acos(qqp / ppp**(3.0d0/2.0d0))
+c                                                  ---- coefficients bbp
+      bbp(1) = 2.0d0*sqrt(ppp)*cos(ttp/3.0d0) + aap(1)
+      bbp(2) = 2.0d0*sqrt(ppp)*cos((ttp+4.0d0*pi)/3.0d0) + aap(1)
+      bbp(3) = 2.0d0*sqrt(ppp)*cos((ttp+2.0d0*pi)/3.0d0) + aap(1)
 c
       return
       end
