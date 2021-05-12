@@ -7,13 +7,13 @@
 """
 
 # IMPORT PACKAGES
-import ummdp
 import warnings
 import numpy as np
 from math import sin, cos, pi
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 from scipy.optimize import fsolve
+from mpl_toolkits.mplot3d import axes3d
 
 
 # PRE-LOADED COMMANDS
@@ -22,6 +22,41 @@ warnings.filterwarnings("ignore")
 
 # IMPORT F2PY FILES
 import ummdp
+
+def yld_3d(ndyld,pryld,yld):
+    nreq = 0
+    npts = 100
+
+    # EXTRACT MAXIMUM SHEAR STRESS
+    flag = 1
+
+    ang = pi/2
+    s = stress_tensor(ang,0,flag)
+    alpha = fsolve(yld_aux,1.0,args=(s,ndyld,pryld,yld,nreq,flag))
+    maxshear = s[3]*alpha
+
+    nsh = 25
+    shear = np.linspace(0.0,1.0,nsh)**0.85*maxshear
+
+    # YIELD LOCUS XX-YY
+    flag = 0
+    ang = np.linspace(0.0,2.0*pi,npts)
+    locus3d = np.zeros((1+npts*(len(shear)-1),3))
+
+    for k in range(nsh-1):
+        for i in range(npts):
+            s = stress_tensor(ang[i],shear[k],flag)
+
+            alpha = fsolve(yld_aux,1.0,args=(s,ndyld,pryld,yld,nreq,flag))
+
+            idx = i+npts*k
+            locus3d[idx,0] = s[0]*alpha
+            locus3d[idx,1] = s[1]*alpha
+            locus3d[idx,2] = s[3]
+
+    locus3d[-1,2] = shear[-1]
+
+    return locus3d
 
 # ------------------------------------------------------------------- SAVE DATA
 def yld_save(shear,locus0,locus1,locus2,aniso):
@@ -51,7 +86,7 @@ def yld_save(shear,locus0,locus1,locus2,aniso):
     data[:,nsh+2] = locus2[:,2]
 
     # EXTRACT DATA FROM ANISOTROPY
-    if not isinstance(aniso,int):
+    if len(aniso) > 2:
         tmp = ['aniso_theta','aniso_sig0','aniso_r']
         header = header + tmp
         data[:aniso.shape[0],nsh+3:] = aniso
@@ -63,14 +98,10 @@ def yld_save(shear,locus0,locus1,locus2,aniso):
     return
 
 # ------------------------------------------------------------------ YIELD PLOT
-def yld_plot(shear,locus0,locus1,locus2,aniso):
-
-    rows = 1
-    if not isinstance(aniso,int):
-        rows = 2
+def yld_plot(shear,locus0,locus1,locus2,aniso,locus3d):
 
     plt.figure(figsize=[12+12*0.15, 8])
-    gs = gridspec.GridSpec(rows,6,wspace=1.5,hspace=0.5)
+    gs = gridspec.GridSpec(2,6,wspace=1.5,hspace=0.5)
 
     # YIELD LOCUS - XX-YY
     ax0 = plt.subplot(gs[0,0:2])
@@ -115,31 +146,39 @@ def yld_plot(shear,locus0,locus1,locus2,aniso):
     ax2.set_ylabel('shear stress, $\sigma_{xy}$')
     ax2.set_aspect('equal')
 
-    # ANISOTROPY
-    if not isinstance(aniso,int):
+    # ANISOTROPY - YIELD STRESS
+    ax3 = plt.subplot(gs[1,2:4])
+    ax3.set_title('anisotropy\nyield stress')
+    ax3.plot([0,90],[1.0,1.0],'-k',lw=0.75)
+    ax3.plot(aniso[:,0],aniso[:,1],'-',lw=1.0,color='tab:blue')
+    ax3.set_ylim(0,3)
+    ax3.set_xlim(0,90)
+    ax3.set_xticks(np.linspace(0,90,7))
+    ax3.set_xlabel('tensile orientation, $\\theta$')
+    ax3.set_ylabel('yield stress, $\sigma_{y}$')
 
-        # ANISOTROPY - YIELD STRESS
-        ax3 = plt.subplot(gs[1,1:3])
-        ax3.set_title('anisotropy\nyield stress')
-        ax3.plot([0,90],[1.0,1.0],'-k',lw=0.75)
-        ax3.plot(aniso[:,0],aniso[:,1],'-',lw=1.0,color='tab:blue')
-        ax3.set_ylim(0,3)
-        ax3.set_xlim(0,90)
-        ax3.set_xticks(np.linspace(0,90,7))
-        ax3.set_xlabel('tensile orientation, $\\theta$')
-        ax3.set_ylabel('yield stress, $\sigma_{y}$')
+    # ANISOTROPY - LANKFORD COEFFICIENT
+    ax4 = plt.subplot(gs[1,4:6])
+    ax4.set_title('anisotropy\nLankford coefficient')
+    ax4.plot([0,90],[1.0,1.0],'-k',lw=0.75)
+    ax4.plot(aniso[:,0],aniso[:,2],'-',lw=1.0,color='tab:blue')
+    ax4.set_ylim(0,3)
+    ax4.set_xlim(0,90)
+    ax4.set_xticks(np.linspace(0,90,7))
+    ax4.set_xlabel('tensile orientation, $\\theta$')
+    ax4.set_ylabel('Lankford coefficient, $r$')
 
-        # ANISOTROPY - LANKFORD COEFFICIENT
-        ax4 = plt.subplot(gs[1,3:5])
-        ax4.set_title('anisotropy\nLankford coefficient')
-        ax4.plot([0,90],[1.0,1.0],'-k',lw=0.75)
-        ax4.plot(aniso[:,0],aniso[:,2],'-',lw=1.0,color='tab:blue')
-        ax4.set_ylim(0,3)
-        ax4.set_xlim(0,90)
-        ax4.set_xticks(np.linspace(0,90,7))
-        ax4.set_xlabel('tensile orientation, $\\theta$')
-        ax4.set_ylabel('Lankford coefficient, $r$')
-
+    # YIELD LOCUS - 3-DIMENSIONAL
+    ax5 = plt.subplot(gs[1,0:2],projection='3d')
+    ax5.scatter(locus3d[:,0],locus3d[:,1],locus3d[:,2],s=1,color='tab:blue')
+    ax5.set_xlim(-1.5,1.5)
+    ax5.set_ylim(-1.5,1.5)
+    ax5.set_zlim(0.0,1.0)
+    ax5.set_xlabel('longitudinal stress, $\sigma_{xx}$')
+    ax5.set_ylabel('transversal stress, $\sigma_{yy}$')
+    ax5.set_zlabel('shear stress, $\sigma_{xy}$')
+    ax5.set_facecolor('w')
+    
     plt.show()
 
 # --------------------------------------------------------------- YIELD WARNING
@@ -399,10 +438,13 @@ def main():
     if yldid != 0:
         aniso = yld_aniso(ndyld,pryld,yld)
     else:
-        aniso = 0
+        aniso = np.ones((2,2))
+
+    # 3D LOCUS
+    locus3d = yld_3d(ndyld,pryld,yld)
 
     # PLOT
-    yld_plot(shear,locus0,locus1,locus2,aniso)
+    yld_plot(shear,locus0,locus1,locus2,aniso,locus3d)
 
     # SAVE
     yld_save(shear,locus0,locus1,locus2,aniso)
