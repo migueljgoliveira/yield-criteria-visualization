@@ -106,8 +106,8 @@ def yld_plot(shear,locus0,locus1,locus2,aniso,locus3d):
     # YIELD LOCUS - XX-YY
     ax0 = plt.subplot(gs[0,0:2])
     ax0.set_title('yield locus\nxx-yy')
-    ax0.plot([-1.5,1.5],[0,0],'-k',lw=0.75)
-    ax0.plot([0,0],[-1.5,1.5],'-k',lw=0.75)
+    ax0.axvline(0,c='k',lw=0.75)
+    ax0.axhline(0,c='k',lw=0.75)
     for k in range(len(shear)):
         ax0.plot(locus0[:,0,k],locus0[:,1,k],'-',lw=1.0,color='tab:blue')
     ax0.set_xlim(-1.5,1.5)
@@ -121,8 +121,8 @@ def yld_plot(shear,locus0,locus1,locus2,aniso,locus3d):
     # YIELD LOCUS - XX-XY
     ax1 = plt.subplot(gs[0,2:4])
     ax1.set_title('yield locus\nxx-xy')
-    ax1.plot([-1.5,1.5],[0,0],'-k',lw=0.75)
-    ax1.plot([0,0],[-1.5,1.5],'-k',lw=0.75)
+    ax1.axvline(0,c='k',lw=0.75)
+    ax1.axhline(0,c='k',lw=0.75)
     ax1.plot(locus1[:,0],locus1[:,2],'-',lw=1.0,color='tab:blue')
     ax1.set_xlim(-1.5,1.5)
     ax1.set_ylim(-1.5,1.5)
@@ -135,8 +135,8 @@ def yld_plot(shear,locus0,locus1,locus2,aniso,locus3d):
     # YIELD LOCUS - YY-XY
     ax2 = plt.subplot(gs[0,4:6])
     ax2.set_title('yield locus\nyy-xy')
-    ax2.plot([-1.5,1.5],[0,0],'-k',lw=0.75)
-    ax2.plot([0,0],[-1.5,1.5],'-k',lw=0.75)
+    ax2.axvline(0,c='k',lw=0.75)
+    ax2.axhline(0,c='k',lw=0.75)
     ax2.plot(locus2[:,1],locus2[:,2],'-',lw=1.0,color='tab:blue')
     ax2.set_xlim(-1.5,1.5)
     ax2.set_ylim(-1.5,1.5)
@@ -149,7 +149,7 @@ def yld_plot(shear,locus0,locus1,locus2,aniso,locus3d):
     # ANISOTROPY - YIELD STRESS
     ax3 = plt.subplot(gs[1,2:4])
     ax3.set_title('anisotropy\nyield stress')
-    ax3.plot([0,90],[1.0,1.0],'-k',lw=0.75)
+    ax3.axhline(1,c='k',lw=0.75)
     ax3.plot(aniso[:,0],aniso[:,1],'-',lw=1.0,color='tab:blue')
     ax3.set_ylim(0,3)
     ax3.set_xlim(0,90)
@@ -160,7 +160,7 @@ def yld_plot(shear,locus0,locus1,locus2,aniso,locus3d):
     # ANISOTROPY - LANKFORD COEFFICIENT
     ax4 = plt.subplot(gs[1,4:6])
     ax4.set_title('anisotropy\nLankford coefficient')
-    ax4.plot([0,90],[1.0,1.0],'-k',lw=0.75)
+    ax4.axhline(1,c='k',lw=0.75)
     ax4.plot(aniso[:,0],aniso[:,2],'-',lw=1.0,color='tab:blue')
     ax4.set_ylim(0,3)
     ax4.set_xlim(0,90)
