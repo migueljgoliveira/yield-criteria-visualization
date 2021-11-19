@@ -15,7 +15,6 @@ from matplotlib import gridspec
 from scipy.optimize import fsolve
 from mpl_toolkits.mplot3d import axes3d
 
-
 # PRE-LOADED COMMANDS
 plt.style.use('seaborn')
 warnings.filterwarnings("ignore")
