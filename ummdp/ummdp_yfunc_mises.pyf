@@ -1,0 +1,31 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module ummdp_yfunc_mises2 ! in 
+    interface  ! in :ummdp_yfunc_mises2
+        subroutine jancae_mises(stress,ndyld,pryld,nreq,se,dseds) ! in :ummdp_yfunc_mises2:ummdp_yfunc_mises.f
+            real*8 dimension(6),intent(in),depend(6) :: stress
+            integer intent(in) :: ndyld
+            real*8 dimension(ndyld),intent(in),depend(ndyld) :: pryld
+            integer intent(in) :: nreq
+            real*8 intent(out) :: se
+            real*8 dimension(6),intent(out),depend(6) :: dseds
+        end subroutine jancae_mises
+        subroutine jancae_mv(v,a,u,nv,nu) ! in :ummdp_yfunc_mises2:ummdp_yfunc_mises.f
+            real*8 dimension(nv) :: v
+            real*8 dimension(nv,nu),depend(nv) :: a
+            real*8 dimension(nu),depend(nu) :: u
+            integer, optional,check(len(v)>=nv),depend(v) :: nv=len(v)
+            integer, optional,check(shape(a,1)==nu),depend(a) :: nu=shape(a,1)
+        end subroutine jancae_mv
+        subroutine jancae_vvs(s,u,v,n) ! in :ummdp_yfunc_mises2:ummdp_yfunc_mises.f
+            real*8 :: s
+            real*8 dimension(n) :: u
+            real*8 dimension(n),depend(n) :: v
+            integer, optional,check(len(u)>=n),depend(u) :: n=len(u)
+        end subroutine jancae_vvs
+    end interface 
+end python module ummdp_yfunc_mises2
+
+! This file was auto-generated with f2py (version:1.21.2).
+! See http://cens.ioc.ee/projects/f2py2e/
