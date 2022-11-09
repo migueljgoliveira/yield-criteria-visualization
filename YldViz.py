@@ -71,12 +71,12 @@ def yld_save(shear,locus0,locus1,locus2,aniso):
     # EXTRACT DATA FROM XX-YY LOCUS
     for i in range(len(shear)):
         data[:,i*2:i*2+2] = locus0[:,0:2,i]
-    
+
     header = []
     for i in shear:
-        tmp = [f'sigXX-{i}',f'sigYY-{i}'] 
+        tmp = [f'sigXX-{i}',f'sigYY-{i}']
         header = header + tmp
-    
+
     # EXTRACT DATA FROM LOCUS-XY
     tmp = ['tau_sigXX','tau_sigYY','tau_sigXY']
     header = header + tmp
@@ -116,7 +116,7 @@ def yld_plot(shear,locus0,locus1,locus2,aniso,locus3d):
     ax0.set_xlabel('longitudinal stress, $\sigma_{xx}$')
     ax0.set_ylabel('transversal stress, $\sigma_{yy}$')
     ax0.set_aspect('equal')
-    
+
     # YIELD LOCUS - XX-XY
     ax1 = plt.subplot(gs[0,2:4])
     ax1.set_title('yield locus\nxx-xy')
@@ -177,12 +177,12 @@ def yld_plot(shear,locus0,locus1,locus2,aniso,locus3d):
     ax5.set_ylabel('transversal stress, $\sigma_{yy}$')
     ax5.set_zlabel('shear stress, $\sigma_{xy}$')
     ax5.set_facecolor('w')
-    
+
     plt.show()
 
 # --------------------------------------------------------------- YIELD WARNING
 def yld_warning(yld,np,mp):
-    
+
     text = 'Error: {:s} takes {:d} parameter, {:d} given.'.format(yld,np,mp)
     print(text)
     exit()
@@ -215,7 +215,7 @@ def yld_aux(x,s,ndyld,pryld,yld,nreq,flag):
     # IF ANISOTROPY
     elif flag == -1:
         return se,dseds
-        
+
 # ------------------------------------------------------------- STRESS TENSOR 1
 def stress_tensor(ang,s12,flag):
 
@@ -387,7 +387,7 @@ def yld_wrapper(yldid,ndyld):
         n = 19
         if ndyld != n:
             yld_warning('Yld2004-18p',n,ndyld)
-    
+
     # CPB 2006
     elif yldid == 3:
         yld = ummdp.jancae_cpb2006
@@ -419,7 +419,7 @@ def main():
         shear = f.readline().strip().split(',')
         params = f.readline().strip().split(',')
 
-    shear = [float(s) for s in shear]	
+    shear = [float(s) for s in shear]
     params = [float(p) for p in params]
 
     yldid = params[0]
